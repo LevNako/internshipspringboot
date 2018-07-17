@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+</head>
+<body>
+<h2>Form to create University: </h2>
+<form action="/university/create" method="post">
+    <p>Please enter your name of University: </p><input type="text" name="name"><br>
+    <p>Please enter your name of InternShip your University: </p><input type="text" name="InternName"><br>
+    <input type="submit">
+</form>
+
+<h1>So here is a list of universities:</h1>
+<ul th:each="u : ${university}">
+    <li>
+        <a th:href="'/university/'+${u.id}" th:text="'ID - '+${u.id}+' Name of University - ' + ${u.name}+' Internship name - '+${u.internship}"></a>
+    </li>
+</ul>
+</body>
+</html>

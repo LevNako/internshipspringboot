@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>University</title>
+</head>
+<body>
+<h1>So here is : </h1>
+<h2  th:text="'ID - '+${u.id}+' Name of University - ' + ${u.name}+' Internship name - '+${u.internship}"></h2>
+<a th:href="'/university/'+${u.id}+'/delete'" >Delete University with Internship</a>
+<a th:href="'/university/'+${u.id}+'/internship'">Show internship</a>
+<p>If you want to update info about your University (required)</p>
+<form th:action="'/university/'+${u.id}+'/update'" method="post">
+    <p>Please enter your University name: </p><input type="text" name="name1" required><br>
+    <p>Please enter your name of InternShip your University: </p><input type="text" name="InternName1" required><br>
+    <input type="submit">
+</form>
+<h2>Please enter info if you want to add student</h2>
+<form th:action="'/university/'+${u.id}+'/student/create'" method="post">
+    <p>Please enter name: </p><input type="text" name="nameStudent" required><br>
+    <p>Please enter knowledge level: </p><input type="text" name="levelStudent" required><br>
+    <input type="submit">
+</form>
+<h1>So here is a list of students in your University:</h1>
+<ul th:each="s : ${students}">
+    <li>
+        <a th:href="'/university/'+${u.id}+'/student/'+${s.id}" th:text="'id - '+${s.id}+' Name - ' + ${s.name} + ' Student knowledge - ' + ${s.knowledge} "></a>
+    </li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Internship</title>
+</head>
+<body>
+<h1>So here is : </h1>
+<h2  th:text="'ID - '+${u.id}+' Name of University - ' + ${u.name}+' Internship name - '+${u.internship}"></h2>
+<h1>So here is a list of students in your University in Internship:</h1>
+<ul th:each="s : ${intern}">
+    <li>
+        <p th:text="'id - '+${s.id}+' Name - ' + ${s.name} + ' Student knowledge - ' + ${s.knowledge} "></p>
+    </li>
+</ul>
+</body>
+</html>

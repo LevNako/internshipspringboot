@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student</title>
+</head>
+<body>
+<h1>So here is:</h1>
+<h3 th:text="'id - '+${s.id}+' Name - ' + ${s.name} + ' Student knowledge - ' + ${s.knowledge} "></h3>
+<a th:href="'/university/'+${u.id}+'/student/'+${s.id}+'/delete'" >Delete Student</a>
+<p>If you want to update info about your Student (required)</p>
+<form th:action="'/university/'+${u.id}+'/student/'+${s.id}+'/update'" method="post">
+    <p>Please enter your Student name: </p><input type="text" name="nameSt" required><br>
+    <p>Please enter your Knowldege of your student: </p><input type="text" name="knowledge" required><br>
+    <input type="submit">
+</form>
+</body>
+</html>
